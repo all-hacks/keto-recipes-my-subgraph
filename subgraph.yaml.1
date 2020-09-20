@@ -6,9 +6,9 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: Gravity
-    network: kovan
+    network: mainnet
     source:
-      address: '0xd567FF8A7a43D06094cEFB3b13E1bFcB7289f9A5'
+      address: '0x70578E82106b5C75bd78b82D19E7940285A66F96'
       abi: Gravity
     mapping:
       kind: ethereum/events
@@ -24,25 +24,4 @@ dataSources:
           handler: handleNewGravatar
         - event: UpdatedGravatar(uint256,address,string,string)
           handler: handleUpdatedGravatar
-      file: ./src/mapping.ts
-  - kind: ethereum/contract
-    name: Recipe
-    network: kovan
-    source:
-      address: '0xd7466cF7026fD125bDaa002A4f01aBE3D0B1171e'
-      abi: Recipe
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.4
-      language: wasm/assemblyscript
-      entities:
-        - Recipe
-      abis:
-        - name: Recipe
-          file: ./abis/Recipe.json
-      eventHandlers:
-        - event: NewRecipe(uint256,address,string,string,string[],string[])
-          handler: handleNewRecipe
-        - event: UpdatedRecipe(uint256,address,string,string)
-          handler: handleUpdatedRecipe
       file: ./src/mapping.ts
